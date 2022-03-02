@@ -27,6 +27,9 @@ setup(
     description='Creates a regex_as_re_globally.pth to replace stdlib "re" module with "regex" module globally before any code runs.',
     long_description=long_description,
     long_description_content_type='text/markdown',
+    url='https://github.com/brondsem/regex_as_re_globally/',
+    author='Dave Brondsema',
+    author_email='dave@brondsema.net',
     data_files=[
         (rel_site_packages, ['regex_as_re_globally.pth', ]),
     ],
