@@ -1,20 +1,15 @@
 from setuptools import setup
 from distutils import sysconfig
 import sys
-import re
 from pathlib import Path
 
 site_packages_path = sysconfig.get_python_lib()
 try:
-    sprem = re.match(
-        r'.*(lib[\\/](python\d(\.\d+)*[\\/])?site-packages)', site_packages_path, re.I)
-    if sprem is None:
-        sprem = re.match(
-            r'.*(lib[\\/](python\d(\.\d+)*[\\/])?dist-packages)', site_packages_path, re.I)
-    rel_site_packages = sprem.group(1)
+    assert site_packages_path.startswith(sys.prefix)
+    rel_site_packages = site_packages_path.replace(sys.prefix + '/', '', 1)
 except Exception as exc:
     print("I'm having trouble finding your site-packages directory.  Is it where you expect?")
-    print("sysconfig.get_python_lib() returns '{}'".format(site_packages_path))
+    print("sysconfig.get_python_lib() returns '{}' and sys.prefix returns '{}'".format(site_packages_path, sys.prefix))
     print("Exception was: {}".format(exc))
     sys.exit(-1)
 
