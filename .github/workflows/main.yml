@@ -39,9 +39,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
-          python -m pip install --upgrade tox tox-py
+          python -m pip install --upgrade tox
       - name: Run tox targets for ${{ matrix.python-version }}
-        run: tox --py current
+        # sed is used to remove the '.' so '3.7' becomes '37' for tox (and pypy3 doesn't become pypypy3)
+        run: tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/`
 
   buildcheck:
     name: buildcheck
