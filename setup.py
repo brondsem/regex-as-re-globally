@@ -3,6 +3,11 @@ from distutils import sysconfig
 import sys
 from pathlib import Path
 
+if sys.argv[1] == 'develop':
+    print('This package cannot be used with `pip install -e .` or `python setup.py develop`')
+    print('It must be fully installed')
+    sys.exit(-1)
+
 site_packages_path = sysconfig.get_python_lib()
 try:
     assert site_packages_path.startswith(sys.prefix)
