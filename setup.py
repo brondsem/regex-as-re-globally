@@ -34,7 +34,7 @@ setup(
     # from https://stackoverflow.com/questions/35112511/pip-setup-py-bdist-wheel-no-longer-builds-forced-non-pure-wheels
     has_ext_modules=lambda: True,
     install_requires=[
-        'regex',
+        'regex>=2022.3.2',
     ],
     zip_safe=False,
     classifiers=[

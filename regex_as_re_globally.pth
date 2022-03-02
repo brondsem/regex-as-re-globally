@@ -1,1 +1,1 @@
-import sys, regex; import re; regex.RegexFlag = re.RegexFlag; sys.modules['re'] = sys.modules['regex']
+import sys, regex; sys.modules['re'] = sys.modules['regex']
