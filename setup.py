@@ -30,6 +30,9 @@ setup(
     data_files=[
         (rel_site_packages, ['regex_as_re_globally.pth', ]),
     ],
+    # the following forces platform-specific wheel files, since generic wheels are not valid for this package
+    # from https://stackoverflow.com/questions/35112511/pip-setup-py-bdist-wheel-no-longer-builds-forced-non-pure-wheels
+    has_ext_modules=lambda: True,
     install_requires=[
         'regex',
     ],
