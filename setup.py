@@ -22,16 +22,16 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name='regex_as_re_globally',
-    version='0.0.1',
-    description='Creates a regex_as_re_globally.pth to replace stdlib "re" module with "regex" module globally before any code runs.',
+    name='regex-as-re-globally',
+    version='0.0.2',
+    description='Creates a regex-as-re-globally.pth to replace stdlib "re" module with "regex" module globally before any code runs.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/brondsem/regex_as_re_globally/',
+    url='https://github.com/brondsem/regex-as-re-globally/',
     author='Dave Brondsema',
     author_email='dave@brondsema.net',
     data_files=[
-        (rel_site_packages, ['regex_as_re_globally.pth', ]),
+        (rel_site_packages, ['regex-as-re-globally.pth', ]),
     ],
     # the following forces platform-specific wheel files, since generic wheels are not valid for this package
     # from https://stackoverflow.com/questions/35112511/pip-setup-py-bdist-wheel-no-longer-builds-forced-non-pure-wheels

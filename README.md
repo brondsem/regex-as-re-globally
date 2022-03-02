@@ -1,4 +1,4 @@
-## regex_as_re_globally
+## regex-as-re-globally
 
 This package does very unusual things, and you normally don't need it.
 It helps you use the "[regex](https://pypi.org/project/regex/)" package which is a backwards-compatible replacement for `re`, with additional features and better performance in some situations (and worse performance in others).
@@ -6,7 +6,7 @@ Normally you can put `import regex as re` in your .py files and that's all you n
 
 However, if you want to use `regex` instead of `re` across your whole environment, even within 3rd-party libraries, then this package is for you.
 
-Run `pip install regex_as_re_globally` to install this package.
+Run `pip install regex-as-re-globally` to install this package.
 It will create a .pth file in site-packages which modifies `sys.modules` so that `regex` is used _everywhere_ instead of `re`.
 **This changes behavior within the whole python environment.**
 
