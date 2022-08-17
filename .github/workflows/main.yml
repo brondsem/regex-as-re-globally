@@ -28,7 +28,7 @@ jobs:
           - 3.9
           - "3.10"
           - "3.11-dev"
-          - pypy3
+          - pypy3.9
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -44,7 +44,7 @@ jobs:
           python -m pip install --upgrade tox
       - name: Run tox targets for ${{ matrix.python-version }}
         # sed is used to remove the '.' so '3.7' becomes '37' for tox (and pypy3 doesn't become pypypy3)
-        run: tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/` | sed s/-dev//`
+        run: tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/ | sed s/-dev//`
 
   buildcheck:
     name: buildcheck
