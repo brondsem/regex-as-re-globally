@@ -1,1 +1,1 @@
-import re, sys; exec('try: import regex\nexcept ModuleNotFoundError: pass'); sys.modules['re'] = sys.modules.get('regex') or sys.modules['re']
+import re, sys, fnmatch, pathlib, urllib.parse, typing, tokenize, locale; exec('try: import regex\nexcept ModuleNotFoundError: pass'); sys.modules['re'] = fnmatch.re = pathlib.re = urllib.parse.re = typing.re = tokenize.re = locale.re = sys.modules.get('regex') or sys.modules['re'];
