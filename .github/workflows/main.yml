@@ -26,7 +26,7 @@ jobs:
           - 3.8
           - 3.9
           - "3.10"
-          - "3.11-dev"
+          - "3.11"
           - pypy3.9
 
     steps:
@@ -44,8 +44,8 @@ jobs:
       - name: Run tox targets for ${{ matrix.python-version }}
         # sed is used to remove the '.' so '3.7' becomes '37' for tox (and pypy3 doesn't become pypypy3)
         run: |
-          tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/ | sed s/-dev//`
-          tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/ | sed s/-dev//`-no-dep
+          tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/`
+          tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/`-no-dep
 
   buildcheck:
     name: buildcheck
