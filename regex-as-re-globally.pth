@@ -1,1 +1,1 @@
-import sys, regex; sys.modules['re'] = sys.modules['regex']
+import re, sys; exec('try: import regex\nexcept ModuleNotFoundError: pass'); sys.modules['re'] = sys.modules.get('regex') or sys.modules['re']
