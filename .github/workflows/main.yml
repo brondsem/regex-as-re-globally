@@ -22,20 +22,21 @@ jobs:
       fail-fast: false
       matrix:
         python-version:
-          - 3.7
           - 3.8
           - 3.9
           - "3.10"
           - "3.11"
+          - "3.12"
           - pypy3.9
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+          allow-prereleases: true
 
       - name: Install dependencies
         run: |
@@ -45,7 +46,7 @@ jobs:
         # sed is used to remove the '.' so '3.7' becomes '37' for tox (and pypy3 doesn't become pypypy3)
         run: |
           tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/`
-          tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/`-no-dep
+          tox --skip-missing-interpreters=false -e py`echo ${{ matrix.python-version }} | sed s/\\\.// | sed s/pypy/py/`-nodep
 
   buildcheck:
     name: buildcheck
@@ -53,7 +54,7 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
         with:
