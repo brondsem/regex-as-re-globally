@@ -1,5 +1,5 @@
 from setuptools import setup
-from distutils import sysconfig
+import sysconfig
 import sys
 from pathlib import Path
 
@@ -8,7 +8,7 @@ if sys.argv[1] == 'develop':
     print('It must be fully installed')
     sys.exit(-1)
 
-site_packages_path = sysconfig.get_python_lib()
+site_packages_path = sysconfig.get_path('platlib')
 try:
     assert site_packages_path.startswith(sys.prefix)
     rel_site_packages = site_packages_path.replace(sys.prefix + '/', '', 1)
