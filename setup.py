@@ -41,7 +41,6 @@ setup(
     ],
     zip_safe=False,
     classifiers=[
-        'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.9',
@@ -49,5 +48,6 @@ setup(
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: 3.13',
-    ]
+    ],
+    license='BSD',
 )
