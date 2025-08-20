@@ -1,7 +1,6 @@
-
 # run from tox.ini
 
-import sys, regex, re, fnmatch
+import sys, regex, re, fnmatch, pathlib
 
 # basic test
 assert re.__package__ == 'regex', re.__file__
@@ -12,6 +11,9 @@ fnmatch.translate('LICEN[CS]E*')
 
 # make sure its actually usable
 re.compile(fnmatch.translate('LICEN[CS]E*'))
+
+# issue #9
+pathlib.Path('foo').glob('bar*')
 
 # check for any other modules with original 're'
 for k, v in sys.modules.items():
