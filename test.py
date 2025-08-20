@@ -1,6 +1,6 @@
 # run from tox.ini
 
-import sys, regex, re, fnmatch, pathlib
+import sys, regex, re, fnmatch, pathlib, glob
 
 # basic test
 assert re.__package__ == 'regex', re.__file__
@@ -14,6 +14,9 @@ re.compile(fnmatch.translate('LICEN[CS]E*'))
 
 # issue #9
 pathlib.Path('foo').glob('bar*')
+
+# issue #11
+assert glob.escape('ab*') == 'ab[*]'
 
 # check for any other modules with original 're'
 for k, v in sys.modules.items():
