@@ -23,7 +23,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='regex-as-re-globally',
-    version='0.0.4',
+    version='0.0.5',
     description='Creates a regex-as-re-globally.pth to replace stdlib "re" module with "regex" module globally before any code runs.',
     long_description=long_description,
     long_description_content_type='text/markdown',
